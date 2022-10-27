@@ -1,5 +1,4 @@
-/*jshint esversion: 9
- */
+/* jshint esversion: 9 */
 
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
