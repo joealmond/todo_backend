@@ -77,11 +77,8 @@ app.put("/:id", async (req, res) => {
   res.send({ message: "Todo updated." });
 });
 
-// start the in-memory MongoDB instance
+// starting the server
 startDatabase().then(async () => {
-  await insertTodo({ title: "Hello, now from the in-memory database!" });
-
-  // starting the server
   app.listen(port, () => {
     console.log("listening on port 8080");
   });
