@@ -38,6 +38,7 @@ app.get("/", async (req, res) => {
   res.send(await getTodos());
 });
 
+// do not serve favicon.ico
 app.get("/favicon.ico", (req, res) => res.status(200));
 
 const checkJwt = jwt({
@@ -58,8 +59,8 @@ const checkJwt = jwt({
 
 app.post("/", async (req, res) => {
   const newTodo = req.body;
-  await insertTodo(newTodo);
-  res.send({ message: "New Todo inserted." });
+  let todoId = await insertTodo(newTodo);
+  await res.send({ id: `${todoId}` });
 });
 
 // app.use(checkJwt);
