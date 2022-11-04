@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "full stack todo app",
   "main": "src/index.js",
+  "engines": {
+    "node": "14.10.41",
+    "npm": "7.19.1"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
