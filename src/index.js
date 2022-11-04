@@ -38,6 +38,8 @@ app.get("/", async (req, res) => {
   res.send(await getTodos());
 });
 
+app.get("/favicon.ico", (req, res) => res.status(200));
+
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
@@ -52,7 +54,7 @@ const checkJwt = jwt({
   algorithms: ["RS256"],
 });
 
-app.use(checkJwt);
+// app.use(checkJwt);
 
 app.post("/", async (req, res) => {
   const newTodo = req.body;
@@ -60,7 +62,7 @@ app.post("/", async (req, res) => {
   res.send({ message: "New Todo inserted." });
 });
 
-app.use(checkJwt);
+// app.use(checkJwt);
 
 // endpoint to delete an todo
 app.delete("/:id", async (req, res) => {
@@ -68,7 +70,7 @@ app.delete("/:id", async (req, res) => {
   res.send({ message: "Todo removed." });
 });
 
-app.use(checkJwt);
+// app.use(checkJwt);
 
 // endpoint to update an todo
 app.put("/:id", async (req, res) => {
