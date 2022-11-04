@@ -30,8 +30,8 @@ app.use(cors());
 app.use(morgan("combined"));
 
 // stetting up port for deploy on Heroku
-// const serverPort = 8080;
-// const port = process.env.PORT || serverPort;
+const serverPort = 8080;
+const port = process.env.PORT || serverPort;
 
 // defining an endpoint to return all todos
 app.get("/", async (req, res) => {
@@ -79,7 +79,7 @@ app.put("/:id", async (req, res) => {
 
 // starting the server
 startDatabase().then(async () => {
-  app.listen(process.env.PORT, () => {
-    console.log(`listening on port ${process.env.PORT}`);
+  app.listen(port, () => {
+    console.log(`listening on port ${port}`);
   });
 });
